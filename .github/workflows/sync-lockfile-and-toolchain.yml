@@ -1,0 +1,17 @@
+name: sync-lockfile-and-toolchain
+run-name: Sync lockfile and toolchain with eclipse-zenoh/zenoh's
+# TODO(fuzzypixelz): use a repository_dispatch or a workflow_dispatch event
+# created by a workflow in from eclipse-zenoh/zenoh using the REST API to run
+# this workflow only when necessary (i.e. when zenoh's lockfile or toolchain
+# file change). However, that requires a GitHub Personal Access Token from
+# eclipse-zenoh.
+# on:
+#   schedule:
+#     - cron: "0 0 * * *" # At the end of every day
+on: push
+jobs:
+  sync-lockfile-and-toolchain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync lockfile and toolchain
+        uses: fuzzypixelz/zenoh-sync-lockfile-and-toolchain@main
